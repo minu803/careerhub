@@ -10,7 +10,7 @@ Initially, I had five separate CSV files: 'companies.csv', 'education_and_skills
 <img width="733" alt="schema" src="https://github.com/minu803/careerhub/assets/111295624/038af60a-d401-4b6f-82c1-e612e48d711d">
 
 ### Step 2. Data Transformation and Import
-Initially, I read all the CSV files and created a consolidated table by performing a join using the primary key 'id'. Next, I extracted the essential columns as defined in the schema design, and these were used to create separate dataframes. Subsequently, I transformed all the entries within the dataframes into JSON format to prepare them for import into the MongoDB environment. These JSON files were also saved for reference. Finally, the data was imported into the Pymongo environment using the following procedure:
+I read all the CSV files and created a consolidated table by performing a join using the primary key 'id'. Next, I extracted the essential columns as defined in the schema design, and these were used to create separate dataframes. Subsequently, I transformed all the entries within the dataframes into JSON format to prepare them for import into the MongoDB environment. These JSON files were also saved for reference. Finally, the data was imported into the Pymongo environment using the following procedure:
 
 ```python
 # connect to MongoDB
@@ -120,3 +120,15 @@ For an added layer of insight, a feature has been introduced to identify top com
 <img width="818" alt="top companies" src="https://github.com/minu803/careerhub/assets/111295624/c5071a8a-e9d8-4c5d-afc5-62102e74f416">
 
 ## III. Use of GenAI
+1. **Convert ObjectId:**
+When I encountered an error related to JSON serialization, I used Gen AI to understand the correct format to switch. The code converts the "_id" field (an ObjectId) into a string representation, making it JSON-serializable and resolving the issue caused by ObjectId's binary nature when directly serialized to JSON.
+
+2. **delete_by_job_title:**
+While I had a general idea of how to delete entries by job_title, the requirement to display job details and request user confirmation added complexity. Gen AI provided valuable insights on tackling this task. I created an additional GET method to display job details and present the confirmation message. In the DELETE method, I focused solely on executing the deletion task.
+
+3. **Comments:**
+GenAI assisted me by offering comprehensive explanations of each function's purpose. It also helped me structure and categorize the expected responses that my code could produce, enhancing clarity and organization throughout the development process.
+
+While GenAI was utilized in these specific areas, substantial work and thought processing were also my own contributions, ensuring a balanced and informed use of generative artificial intelligence in the development of this chatbot.
+
+
